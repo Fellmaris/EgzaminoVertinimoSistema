@@ -90,7 +90,11 @@ public class EgzaminasTestas extends Egzam{
     }
 
 
-    public void exam(Scanner sc){
+    public void exam(Student student, Scanner sc, CloseUp closeUp){
+        if (!student.takeEgzamTimer(new Date())){
+            System.out.println("You need to wait for " + student.waitingTime(new Date()) + " to be able to take this egzam again");
+            return;
+        }
         setExamId(123);
         setExamName("OOP");
         setType("Test");
@@ -130,7 +134,6 @@ public class EgzaminasTestas extends Egzam{
         fifthAnswer = sc.next().toUpperCase(Locale.ROOT);
         writtenAnswers.put(5, fifthAnswer);
 
-        CloseUp closeUp = new CloseUp(); //????
         writtenAnswersList.add(writtenAnswers);
         closeUp.setWrittenAnswers(writtenAnswersList);
     }

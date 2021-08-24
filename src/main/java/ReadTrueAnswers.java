@@ -73,7 +73,7 @@ public class ReadTrueAnswers extends Egzam{
 
     }
 
-    public void setAnswers (){
+    public void setAnswers (ObjectMapper mapper){
         Scanner sc = new Scanner(System.in);
         System.out.println("Iveskite pirmo atsakymo teisinga varianta:");
         setFirst(sc.next().toUpperCase(Locale.ROOT));
@@ -90,7 +90,5 @@ public class ReadTrueAnswers extends Egzam{
         teisingiAts.put(3,getThird());
         teisingiAts.put(4,getFourth());
         teisingiAts.put(5,getFifth());
-        CloseUp closeUp = new CloseUp();
-        closeUp.egzamAnswerCloseUp(teisingiAts);
     }
 }

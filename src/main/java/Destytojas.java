@@ -25,7 +25,6 @@ public class Destytojas extends User {
     }
 
 
-
     public boolean register(List <Destytojas> destytojai) {
         Scanner sc = new Scanner(System.in);
         Main main = new Main();

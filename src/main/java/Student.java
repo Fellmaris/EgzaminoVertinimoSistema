@@ -1,7 +1,17 @@
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
 public class Student extends User {
+
+
+    public Date waitingTime(Date currentTime){
+        return new Date();
+    };
+    public boolean takeEgzamTimer(Date date){
+        return true;
+    };
+
     public Student(String name, String surname, int id, String password, Boolean isProfessor) {
         super(name, surname, id, password);
         if (isProfessor){

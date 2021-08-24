@@ -1,12 +1,15 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.util.*;
 
 public class Service {
     Scanner sc = new Scanner(System.in);
-    List <Map> studentoEgzaminaiIrAtsakymai = new ArrayList<>();
+    StartUp startUp = new StartUp();
+    CloseUp closeUp = new CloseUp();
+
+    Student jonas = new Student("Jonas", "Jonaitis", 123, "123", false);
 
     public void program () {
-        StartUp startUp = new StartUp();
-        Student jonas = new Student("Jonas", "Jonaitis", 123, "123", false);
         startUp.studentai.add(jonas);
         boolean isRunning = true;
         while (isRunning){
@@ -17,7 +20,7 @@ public class Service {
             int choice = sc.nextInt();
             switch (choice) {
                 case 1 -> {
-                    logIn(startUp.destytojai, startUp.studentai, sc);
+                    logIn(startUp.destytojai, startUp.studentai, sc, startUp.mapper);
                     isRunning = false;
                 }
                 case 2 -> register(startUp.destytojai, startUp.studentai, sc);
@@ -26,11 +29,11 @@ public class Service {
             }
         }
         EgzaminasTestas egzaminasTestas = new EgzaminasTestas(123,"OOP","test");
-        CloseUp closeUp  = new CloseUp(startUp.destytojai, startUp.studentai, startUp.egzaminaiTestai, egzaminasTestas.getWrittenAnswers());
+        closeUp  = new CloseUp(startUp.destytojai, startUp.studentai, startUp.egzaminaiTestai, egzaminasTestas.getWrittenAnswers(),startUp.egzStudEAnswobj);
 
     }
 
-    private void logIn(List<Destytojas> destytojai, List<Student> studentai, Scanner sc) {
+    private void logIn(List<Destytojas> destytojai, List<Student> studentai, Scanner sc,ObjectMapper mapper) {
         System.out.println("Iveskite savo pareigas:");
         String ocupation = sc.next().toUpperCase(Locale.ROOT);
         if (ocupation.equals("DESTYTOJAS")){
@@ -41,7 +44,7 @@ public class Service {
                     System.out.println("Iveskite savo slaptazodi");
                     String pass = sc.next();
                     if(pass.equals(d.getPassword())){
-                        destytojoAplinka(d);
+                        destytojoAplinka(d,mapper);
                         break;
                     } else {
                         System.out.println("Neteisingas slaptazodis.");
@@ -73,15 +76,16 @@ public class Service {
     private void register(List<Destytojas> destytojai, List<Student> studentai, Scanner sc) {
     }
 
-    private void destytojoAplinka(Destytojas d) {
+    private void destytojoAplinka(Destytojas d, ObjectMapper mapper) {
         ReadTrueAnswers readTrueAnswers = new ReadTrueAnswers(123,"OOP","test");
-        readTrueAnswers.setAnswers();
+        readTrueAnswers.setAnswers(mapper);
     }
 
     private void studentoAplinka(Student s) {
+        System.out.println("1.Laikyti egzamina testa.");
+        System.out.println();
         EgzaminasTestas egzaminasTestas = new EgzaminasTestas(123,"OOP","test");
-        egzaminasTestas.exam(sc);
-        studentoEgzaminaiIrAtsakymai.add(egzaminasTestas.writtenAnswers);
+        egzaminasTestas.exam(jonas, sc, closeUp);
     }
 
 

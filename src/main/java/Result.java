@@ -1,7 +1,6 @@
 import java.util.Map;
 
 public class Result {
-
     public int result = 0;
 
         public Result(Map writtenAnswers, Map trueAnswers) {

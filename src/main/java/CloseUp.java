@@ -21,34 +21,22 @@ public class CloseUp {
     public CloseUp() {
     }
 
-    public CloseUp(List destytojai, List studentai, List egzaminoAts, Map trueAnswers) {
+    public CloseUp(List destytojai, List studentai, List egzaminoAts, Map trueAnswers, List studEgzEAnswObj) {
         ObjectMapper mapper = new ObjectMapper();
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
         File destytojaiFile = new File("destytojai.json");
         File studentaiFile = new File("studentai.jason");
         File egzaminuFile = new File("egzaminai.json");
-        try {
-            if (!destytojaiFile.exists()) {
-                System.out.println("Kuriamas dėstytoju failas...");
-                destytojaiFile.createNewFile();
-            }
-            if (!studentaiFile.exists()) {
-                System.out.println("Kuriamas studentų failas...");
-                studentaiFile.createNewFile();
-            }
-            if (!egzaminuFile.exists()) {
-                System.out.println("Kuriamas egzaminų laikymo failas...");
-                egzaminuFile.createNewFile();
-            }
-
-        } catch (IOException e) {
-            System.out.println("Nepavyko sukurti failų. " + e);
-        }
+        File trueAnswersFile = new File("egzaminoAts.json");
+        File studEgzEAnswObjk = new File ("studentEgzamAndAnswerObjects");
 
         try {
             System.out.println("Įrašomi failai...");
+            mapper.writeValue(egzaminuFile, egzaminoAts);
+            mapper.writeValue(trueAnswersFile, trueAnswers);
             mapper.writeValue(destytojaiFile, destytojai);
             mapper.writeValue(studentaiFile, studentai);
+            mapper.writeValue(studEgzEAnswObjk, studEgzEAnswObj);
         }catch (IOException e){
             System.out.println("Nepavyko įrašyti failų. " + e);
         }
@@ -74,22 +62,4 @@ public class CloseUp {
         }
     }
 
-    public void egzamAnswerCloseUp(Map<Integer,String> egzamAnswers){
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.enable(SerializationFeature.INDENT_OUTPUT);
-        File egzaminuAtsFile = new File("egzaminai.json");
-        try {
-            if (!egzaminuAtsFile.exists()) {
-                System.out.println("Kuriamas egzaminų laikymo failas...");
-                egzaminuAtsFile.createNewFile();
-            }
-        }catch (IOException e){
-            System.out.println("Nepavyko sukurti atsakymu failo... " + e);
-        }
-        try {
-            mapper.writeValue(egzaminuAtsFile, egzamAnswers);
-        } catch (IOException e){
-            System.out.println("Nepavyko irasyti egzamino teisingu atsakymu... " + e);
-        }
-    }
 }

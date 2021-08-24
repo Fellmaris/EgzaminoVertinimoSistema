@@ -13,6 +13,7 @@ public class EgzaminasTestas extends Egzam{
     private final int questionFour = 4;
     private final int questionFive = 5;
     Map <Integer, String> writtenAnswers = new HashMap<>();
+    List<Object> writtenAnswersList = new ArrayList<>();
 
     public EgzaminasTestas(int examId, String examName, String type) {
         super(examId, examName, type);
@@ -89,11 +90,10 @@ public class EgzaminasTestas extends Egzam{
     }
 
 
-    public void exam(){
+    public void exam(Scanner sc){
         setExamId(123);
         setExamName("OOP");
         setType("Test");
-        Scanner sc = new Scanner(System.in);
         System.out.println("Sveiki atvyke i: " + getExamName() + " egzamina");
         System.out.println("1. Pirmas klausimas");
         System.out.println("A");
@@ -130,8 +130,7 @@ public class EgzaminasTestas extends Egzam{
         fifthAnswer = sc.next().toUpperCase(Locale.ROOT);
         writtenAnswers.put(5, fifthAnswer);
 
-        CloseUp closeUp = new CloseUp();
-        List<Object> writtenAnswersList = new ArrayList<>();
+        CloseUp closeUp = new CloseUp(); //????
         writtenAnswersList.add(writtenAnswers);
         closeUp.setWrittenAnswers(writtenAnswersList);
     }

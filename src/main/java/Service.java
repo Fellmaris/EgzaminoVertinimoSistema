@@ -1,6 +1,9 @@
 import java.util.*;
 
 public class Service {
+    Scanner sc = new Scanner(System.in);
+    List <Map> studentoEgzaminaiIrAtsakymai = new ArrayList<>();
+
     public void program () {
         StartUp startUp = new StartUp();
         Student jonas = new Student("Jonas", "Jonaitis", 123, "123", false);
@@ -11,22 +14,15 @@ public class Service {
             System.out.println("1.Prisijungti");
             System.out.println("2.Registruotis");
             System.out.println("3.Iseiti");
-            Scanner sc = new Scanner(System.in);
             int choice = sc.nextInt();
-            switch (choice){
-                case 1:
-                    logIn(startUp.destytojai, startUp.studentai,sc);
+            switch (choice) {
+                case 1 -> {
+                    logIn(startUp.destytojai, startUp.studentai, sc);
                     isRunning = false;
-                    break;
-                case 2:
-                    register(startUp.destytojai, startUp.studentai,sc);
-                    break;
-                case 3:
-                    isRunning = false;
-                    break;
-                default:
-                    System.out.println("Tokio pasirinkimo nera.");
-                    break;
+                }
+                case 2 -> register(startUp.destytojai, startUp.studentai, sc);
+                case 3 -> isRunning = false;
+                default -> System.out.println("Tokio pasirinkimo nera.");
             }
         }
         EgzaminasTestas egzaminasTestas = new EgzaminasTestas(123,"OOP","test");
@@ -84,8 +80,7 @@ public class Service {
 
     private void studentoAplinka(Student s) {
         EgzaminasTestas egzaminasTestas = new EgzaminasTestas(123,"OOP","test");
-        egzaminasTestas.exam();
-        List <Map> studentoEgzaminaiIrAtsakymai = new ArrayList<>();
+        egzaminasTestas.exam(sc);
         studentoEgzaminaiIrAtsakymai.add(egzaminasTestas.writtenAnswers);
     }
 

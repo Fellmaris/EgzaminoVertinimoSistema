@@ -1,0 +1,21 @@
+[ {
+  "student" : {
+    "name" : "Jonas",
+    "surname" : "Jonaitis",
+    "password" : "123",
+    "id" : 123
+  },
+  "egzam" : {
+    "examId" : 123,
+    "examName" : "OOP",
+    "type" : "Test",
+    "writtenAnswers" : {
+      "1" : "A",
+      "2" : "A",
+      "3" : "B",
+      "4" : "C",
+      "5" : "C"
+    }
+  },
+  "results" : 4
+} ]

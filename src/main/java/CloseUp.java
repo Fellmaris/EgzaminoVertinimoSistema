@@ -28,7 +28,7 @@ public class CloseUp {
         File studentaiFile = new File("studentai.jason");
         File egzaminuFile = new File("egzaminai.json");
         File trueAnswersFile = new File("egzaminoAts.json");
-        File studEgzEAnswObjk = new File ("studentEgzamAndAnswerObjects");
+        File studEgzEAnswObjk = new File ("studentEgzamAndAnswerObjects.json");
 
         try {
             System.out.println("Įrašomi failai...");

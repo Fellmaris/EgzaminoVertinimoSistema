@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.*;
 
-public class EgzaminasTestas extends Egzam{
+public class EgzaminasTestas extends Egzam implements Serializable {
 
     private String firstAnswer;
     private String secondAnswer;
@@ -9,6 +10,10 @@ public class EgzaminasTestas extends Egzam{
     private String fifthAnswer;
     private final int questionOne = 1;
     private final int questionTwo = 2;
+
+    public EgzaminasTestas() {
+    }
+
     private final int questionThree = 3;
     private final int questionFour = 4;
     private final int questionFive = 5;

@@ -23,7 +23,7 @@ public class StartUp {
         File egzaminuFile = new File("egzaminai.json");
         File trueAnswersFile = new File("egzaminoAts.json");
         File studentEgzaminaiIrAtsakymaiFile = new File("studEgzAndAnswr.json");
-        File egzStudEAnswobjFile = new File("StudentExamAnswerObject.json");
+        File egzStudEAnswobjFile = new File("studentEgzamAndAnswerObjects.json");
         try {
             if (!studentEgzaminaiIrAtsakymaiFile.exists()) {
                 destytojaiFile.createNewFile();

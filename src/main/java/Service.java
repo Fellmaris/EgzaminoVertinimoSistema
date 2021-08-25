@@ -8,6 +8,7 @@ public class Service {
     CloseUp closeUp = new CloseUp();
 
     Student jonas = new Student("Jonas", "Jonaitis", 123, "123", false);
+    Destytojas tadas = new Destytojas("Tadas", "Pranauskas", 321, "321", true);
 
     public void program () {
         startUp.studentai.add(jonas);
@@ -84,8 +85,11 @@ public class Service {
     private void studentoAplinka(Student s) {
         System.out.println("1.Laikyti egzamina testa.");
         System.out.println();
+
         EgzaminasTestas egzaminasTestas = new EgzaminasTestas(123,"OOP","test");
         egzaminasTestas.exam(jonas, sc, closeUp);
+        CreateStudentExamAnswerObject createStudentExamAnswerObject = new CreateStudentExamAnswerObject(jonas, egzaminasTestas, egzaminasTestas);
+        startUp.egzStudEAnswobj.add(createStudentExamAnswerObject);
     }
 
 

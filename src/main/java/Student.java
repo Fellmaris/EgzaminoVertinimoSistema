@@ -1,16 +1,17 @@
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-public class Student extends User {
+public class Student extends User implements Serializable {
 
 
     public Date waitingTime(Date currentTime){
         return new Date();
-    };
+    }
     public boolean takeEgzamTimer(Date date){
         return true;
-    };
+    }
 
     public Student(String name, String surname, int id, String password, Boolean isProfessor) {
         super(name, surname, id, password);
@@ -19,6 +20,9 @@ public class Student extends User {
         } else {
             UserLevel user = UserLevel.STUDENT;
         }
+    }
+
+    public Student() {
     }
 
     @Override

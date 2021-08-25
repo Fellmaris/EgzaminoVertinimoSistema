@@ -41,10 +41,10 @@ public class StartUp {
                 egzaminuFile.createNewFile();
             }
             if (!trueAnswersFile.exists()) {
-                egzaminuFile.createNewFile();
+                trueAnswersFile.createNewFile();
             }
             if (!egzStudEAnswobjFile.exists()) {
-                egzaminuFile.createNewFile();
+                egzStudEAnswobjFile.createNewFile();
             }
 
         } catch (IOException e) {

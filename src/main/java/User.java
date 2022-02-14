@@ -1,16 +1,17 @@
 import java.io.Serializable;
+import java.util.Scanner;
 
 enum UserLevel {
     STUDENT(1), PROFESSOR(2);
 
-    private final int id;
+    private final int userLevel;
 
     public int getId() {
-        return id;
+        return userLevel;
     }
 
-    UserLevel(int id) {
-        this.id = id;
+    UserLevel(int userLevel) {
+        this.userLevel = userLevel;
     }
 }
 
@@ -65,4 +66,28 @@ public class User implements Serializable {
     public User() {
     }
 
+    public Object enterData(Scanner sc, int id, boolean isProfessor){
+        System.out.println("Iveskite savo vardą:");
+        String name = sc.next();
+        System.out.println("Įveskite savo pavardę:");
+        String surname = sc.next();
+        String pass;
+        while (true) {
+            System.out.println("Įveskite norimą slaptažodį:");
+            String pass1 = sc.next();
+            System.out.println("Pakartokite savo slaptažodį:");
+            String pass2 = sc.next();
+            if (!pass1.equals(pass2)) {
+                System.out.println("Slaptažodžiai nesutapo, bandykite dar kartą...");
+            } else {
+                pass = pass1;
+                break;
+            }
+        }
+        if(isProfessor){
+            return new Destytojas(name, surname, id, pass, true);
+        } else {
+            return new Student(name, surname, id, pass, false);
+        }
+    }
 }

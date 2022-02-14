@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class Service {
+    final private String destytojoSlaptazodis = "123";
     public void program () {
         StartUp startUp = new StartUp();
         Student jonas = new Student("Jonas", "Jonaitis", 123, "123", false);
@@ -75,6 +76,15 @@ public class Service {
     }
 
     private void register(List<Destytojas> destytojai, List<Student> studentai, Scanner sc) {
+        System.out.println("Ar registruojatės kaip destytojas ar studentas?");
+        String position = sc.next();
+        if (position.toLowerCase(Locale.ROOT).equals("destytojas")){
+          Destytojas destytojas = new Destytojas();
+          destytojas.register(destytojai);
+        } else if (position.toLowerCase(Locale.ROOT).equals("studentas")){
+            Student student = new Student();
+            student.register(studentai);
+        }
     }
 
     private void destytojoAplinka(Destytojas d) {

@@ -28,7 +28,6 @@ public class Destytojas extends User {
 
     public boolean register(List <Destytojas> destytojai) {
         Scanner sc = new Scanner(System.in);
-        Main main = new Main();
         System.out.println("Sveiki dėstytojau, įveskite savo id:");
         int id = sc.nextInt();
         if (destytojai == null){
@@ -41,24 +40,8 @@ public class Destytojas extends User {
                 }
             }
         }
-        System.out.println("Iveskite savo vardą:");
-        String name = sc.next();
-        System.out.println("Įveskite savo pavardę:");
-        String surname = sc.next();
-        String pass;
-        while (true) {
-            System.out.println("Įveskite norimą slaptažodį:");
-            String pass1 = sc.next();
-            System.out.println("Pakartokite savo slaptažodį:");
-            String pass2 = sc.next();
-            if (!pass1.equals(pass2)) {
-                System.out.println("Slaptažodžiai nesutapo, bandykite dar kartą...");
-            } else {
-                pass = pass1;
-                break;
-            }
-        }
-        Destytojas destytojas = new Destytojas(name, surname, id, pass, true);
+        Destytojas destytojasTemp = (Destytojas) enterData(sc, id, true);
+        Destytojas destytojas = new Destytojas(destytojasTemp.getName(), destytojasTemp.getSurname(), id, destytojasTemp.getPassword(), true);
         destytojai.add(destytojas);
         System.out.println("Vartotojas sėkmingai sukurtas.");
         return true;

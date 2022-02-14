@@ -11,6 +11,9 @@ public class Student extends User {
         }
     }
 
+    public Student() {
+    }
+
     @Override
     public String toString() {
         return "Studentas:\n" +
@@ -24,30 +27,14 @@ public class Student extends User {
         Scanner sc = new Scanner(System.in);
         System.out.println("Sveiki studente, įveskite savo id:");
         int id = sc.nextInt();
-        for (Object studentas: studentai) {
-            if (getId() == id){
+        for (Student studentas: studentai) {
+            if (studentas.getId() == id){
                 System.out.println("Toks vartotojas jau yra...");
                 return false;
             }
         }
-        System.out.println("Iveskite savo vardą:");
-        String name = sc.next();
-        System.out.println("Įveskite savo pavardę:");
-        String surname = sc.next();
-        String pass;
-        while (true) {
-            System.out.println("Įveskite norimą slaptažodį:");
-            String pass1 = sc.next();
-            System.out.println("Pakartokite savo slaptažodį:");
-            String pass2 = sc.next();
-            if (!pass1.equals(pass2)) {
-                System.out.println("Slaptažodžiai nesutapo, bandykite dar kartą...");
-            } else {
-                pass = pass1;
-                break;
-            }
-        }
-        Student student = new Student(name, surname, id, pass, false);
+        Student studentTemp = (Student) enterData(sc, id, false);
+        Student student = new Student(studentTemp.getName(), studentTemp.getSurname(), id, studentTemp.getPassword(), false);
         studentai.add(student);
         System.out.println("Vartotojas sėkmingai sukurtas.");
         return true;

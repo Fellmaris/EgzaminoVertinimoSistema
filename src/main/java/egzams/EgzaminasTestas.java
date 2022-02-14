@@ -1,3 +1,7 @@
+package egzams;
+
+import service.CloseUp;
+
 import java.util.*;
 
 public class EgzaminasTestas extends Egzam{

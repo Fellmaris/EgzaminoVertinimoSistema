@@ -1,3 +1,8 @@
+package egzams;
+
+import service.CloseUp;
+import users.Student;
+
 import java.util.ArrayList;
 import java.util.List;
 

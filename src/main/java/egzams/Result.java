@@ -1,3 +1,5 @@
+package egzams;
+
 import java.util.Map;
 
 public class Result {

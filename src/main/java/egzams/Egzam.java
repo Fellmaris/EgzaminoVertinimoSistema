@@ -1,3 +1,5 @@
+package egzams;
+
 public class Egzam {
     private int examId;
     private String examName;

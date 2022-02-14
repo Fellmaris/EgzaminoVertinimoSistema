@@ -1,3 +1,5 @@
+package users;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,7 +11,7 @@ public class Destytojas extends User {
 
     @Override
     public String toString() {
-        return "Destytojas: \n" +
+        return "users.Destytojas: \n" +
                 "Vardas: " + getName() + "\n" +
                 "Pavardė: " + getSurname() + "\n" +
                 "ID: " + getId();

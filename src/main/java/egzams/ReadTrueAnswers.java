@@ -1,14 +1,13 @@
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
+package egzams;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
+import egzams.Egzam;
+import service.CloseUp;
+
 import java.util.Locale;
 import java.util.Map;
 import java.util.Scanner;
 
-public class ReadTrueAnswers extends Egzam{
+public class ReadTrueAnswers extends Egzam {
 
     private final int examId = getExamId();
     private final String examName = getExamName();

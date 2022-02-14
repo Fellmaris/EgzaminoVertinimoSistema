@@ -1,3 +1,9 @@
+package service;
+
+import egzams.EgzaminasTestas;
+import users.Destytojas;
+import users.Student;
+
 import java.util.*;
 
 public class Service {

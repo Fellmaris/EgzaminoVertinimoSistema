@@ -1,6 +1,7 @@
 package service;
 
 import egzams.EgzaminasTestas;
+import egzams.ReadTrueAnswers;
 import users.Destytojas;
 import users.Student;
 
@@ -102,7 +103,7 @@ public class Service {
         EgzaminasTestas egzaminasTestas = new EgzaminasTestas(123,"OOP","test");
         egzaminasTestas.exam();
         List <Map> studentoEgzaminaiIrAtsakymai = new ArrayList<>();
-        studentoEgzaminaiIrAtsakymai.add(egzaminasTestas.writtenAnswers);
+        studentoEgzaminaiIrAtsakymai.add(egzaminasTestas.getWrittenAnswers());
     }
 
 

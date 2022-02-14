@@ -16,7 +16,7 @@ public class EgzaminasTestas extends Egzam{
     private final int questionThree = 3;
     private final int questionFour = 4;
     private final int questionFive = 5;
-    Map <Integer, String> writtenAnswers = new HashMap<>();
+    private Map <Integer, String> writtenAnswers = new HashMap<>();
 
     public EgzaminasTestas(int examId, String examName, String type) {
         super(examId, examName, type);

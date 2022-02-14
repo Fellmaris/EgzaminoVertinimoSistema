@@ -1,11 +1,11 @@
 [ {
-  "name" : "123",
-  "surname" : "123",
+  "name" : "Dainius",
+  "surname" : "Viskaitis",
   "password" : "123",
   "id" : 1
 }, {
-  "name" : "13",
-  "surname" : "13",
+  "name" : "Ausra",
+  "surname" : "Kavaliauskaite",
   "password" : "13",
   "id" : 666
 } ]

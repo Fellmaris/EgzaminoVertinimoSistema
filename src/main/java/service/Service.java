@@ -12,7 +12,9 @@ public class Service {
     public void program () {
         StartUp startUp = new StartUp();
         Student jonas = new Student("Jonas", "Jonaitis", 123, "123", false);
+        Destytojas pranas = new Destytojas("Pranas", "Pranaitis", 321, "321", true);
         startUp.studentai.add(jonas);
+        startUp.destytojai.add(pranas);
         boolean isRunning = true;
         while (isRunning){
             System.out.println("Pasirinkite operacija.");
@@ -95,11 +97,13 @@ public class Service {
     }
 
     private void destytojoAplinka(Destytojas d) {
+        System.out.println("Sveiki destytojau: " + d.getName() + " " + d.getSurname());
         ReadTrueAnswers readTrueAnswers = new ReadTrueAnswers(123,"OOP","test");
         readTrueAnswers.setAnswers();
     }
 
     private void studentoAplinka(Student s) {
+        System.out.println("Sveiki studente: " + s.getName() + " " + s.getSurname());
         EgzaminasTestas egzaminasTestas = new EgzaminasTestas(123,"OOP","test");
         egzaminasTestas.exam();
         List <Map> studentoEgzaminaiIrAtsakymai = new ArrayList<>();
